@@ -7,8 +7,9 @@ awscreds = 'ecr:us-east-1:awsecrcreds'
 node(){
 
    stage("Git Checkout"){
-   checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'repo3git', url: 'https://github.com/muraliphani/realtimehandson.git']]])
-   }
+   checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[credentialsId: 'repo3git', url: 'https://github.com/s9848261712/rentalcarsv1.2.git]]]}
+                 }
+        }
 
    stage("Maven Build"){
    sh "mvn package"
