@@ -1,5 +1,8 @@
 imagename ="245654260615.dkr.ecr.us-east-1.amazonaws.com/rentalcars"
 ecrRegistry ="https://245654260615.dkr.ecr.us-east-1.amazonaws.com"
+awscreds = 'ecr:us-east-1:awsecrcreds'
+
+
 node(){
 
    stage("Git Checkout"){
@@ -20,7 +23,7 @@ node(){
 
   stage('push docker image to ECR') {
 
-          docker.withRegistry( ecrRegistry, awsecrcreds) {
+          docker.withRegistry( ecrRegistry,awscreds) {
                 dockerImage.push("$BUILD_NUMBER")
                 dockerImage.push('latest')
               }
